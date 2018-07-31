@@ -1,0 +1,21 @@
+{% extends 'Movies/base.html' %}
+{% block content %}
+<div class="container"> <br />
+<button onclick="window.location='{% url 'index' %}'" type="button" class="btn btn-default" name="Click">Home Page</button> 
+
+        <br />
+    <div class="row">
+        <div class="col-lg-12"><br><br>
+           <h1>Studio List </h1>  <br>
+            {% for movie in movies  %}
+                   
+               <li> {{movie.studio}}</li>
+   
+   
+            {% endfor %}
+        </div>
+   
+</div>
+{% endblock %}
+
+

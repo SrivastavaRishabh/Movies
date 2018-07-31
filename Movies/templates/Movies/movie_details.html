@@ -1,0 +1,27 @@
+ {% extends 'Movies/base.html' %}
+{% block content %}
+ <div class="movies_enter">
+        <br />
+            <h2>Movie title:     {{ movie.title }}   <button onclick="window.location='{% url 'index' %}'" type="button" class="btn btn-default" name="Click">Home Page</button>          
+       </h2> 
+            
+            <p>Movie Prefix:           {{ movie.prefix }}
+            <br>Subtitle:    {{  movie.subtitle  }}
+            <br>Directors:     {% for directors in movie.directors.all %}
+                                   {{directors.first_name}}
+                                {% endfor %}
+            <img src="{{MEDIA_ROOT}}/{{ movie.coverimage.url }}" align="right" height="200" width="200">
+            <br>Studio:       {{ movie.studio }}
+                                   
+            <br>Released: {{ movie.released }}
+            <br>Genre:     {% for genre in movie.genre.all %}
+                                    {{genre.title}}
+                                {% endfor %}
+            <br>Review:   {{ movie.review }}
+            <br>ASIN:     {{ movie.asin }}
+            </p>
+         
+     <hr>
+      </div>
+
+{% endblock %}

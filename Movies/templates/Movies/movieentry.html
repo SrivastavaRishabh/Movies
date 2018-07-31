@@ -1,0 +1,27 @@
+
+ <div class="movies_enter">
+        <br />
+
+           <h2 > <li>    {{ movie.title }}  <button onclick="window.location='{% url 'details' pk=movie.id %}'" type="button" class="btn btn-primary" name="Click">Details</button>
+         </li> 
+           </h2>        
+      
+            
+            {% comment %} <p>Movie Prefix:           {{ movie.prefix }}
+            <br>Subtitle:    {{  movie.subtitle  }}
+            <br>Directors:     {% for directors in movie.directors.all %}
+                                   {{directors.first_name}}
+                                {% endfor %}
+            <img src="{{MEDIA_ROOT}}/{{ movie.coverimage.url }}" align="right" height="140" width="150">
+            <br>Studio:       {{ movie.studio }}
+                                   
+            <br>Released: {{ movie.released }}
+            <br>Genre:     {% for genre in movie.genre.all %}
+                                    {{genre.title}}
+                                {% endfor %}
+            <br>Review:   {{ movie.review }}
+            <br>ASIN:     {{ movie.asin }}
+            </p>
+          {% endcomment %}
+     <hr>
+      </div>
