@@ -1,0 +1,43 @@
+{% extends 'Music/base.html' %}
+{% block content %}
+<div class="container"> <br />
+<h1>Music App</h1>
+   
+        <hr>
+
+
+<div class="row">
+        <div class="col-lg-12">
+         <h1>Music List <button onclick="window.location='{% url 'music_list'  %}'" type="button" class="btn btn-primary" name="Click">Click</button>
+       </h1>
+       
+        </div>
+   </div>
+
+   
+
+    <div class="row">
+        <div class="col-lg-12">
+         <h1>Genre List <button onclick="window.location='{% url 'index'  %}'" type="button" class="btn btn-primary" name="Click">Click</button>
+       </h1>
+       
+        </div>
+   </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+         <h1>Band List <button onclick="window.location='{% url 'index'  %}'" type="button" class="btn btn-primary" name="Click">Click</button>
+       </h1>
+       
+        </div>
+   </div>
+
+<div class="row">
+        <div class="col-lg-12">
+         <h1>Album List<button onclick="window.location='{% url 'index'  %}'" type="button" class="btn btn-primary" name="Click">Click</button>
+       </h1>
+       
+        </div>
+   </div>
+</div>
+{% endblock %}
