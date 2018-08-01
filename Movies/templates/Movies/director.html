@@ -4,7 +4,7 @@
 <button onclick="window.location='{% url 'index' %}'" type="button" class="btn btn-default" name="Click">Home Page</button> 
         <br />
     <div class="row" >
-        <div class="col-lg-12"> <br><br>
+        <div class="col-lg-6"> <br><br>
         <h1>Director </h1>  <br>
             {% for movie in movies  %}
                     {% for directors in movie.directors.all %}
@@ -16,6 +16,17 @@
    
             {% endfor %}
         </div>
+
+        <div class="row" >
+        <div class="col-lg-12"> <br>
+        <h1>Movies By Director</h1>  <br>
+            {% for movie in movies  %}
+         <h > <li> {{ movie.title }}  <button onclick="window.location='{% url 'details' pk=movie.id %}'" type="button" class="btn btn-default" name="Click">Details</button>
+                </li> 
+                     </h>
+            {% endfor %}
+        </div>
+    </div>
    
 </div>
 {% endblock %}
