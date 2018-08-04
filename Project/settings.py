@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'messageboard',
     'django_filters',
     'People',
+    
 ]
 
 MIDDLEWARE = [
