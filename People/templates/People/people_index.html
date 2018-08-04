@@ -1,0 +1,38 @@
+{% extends 'People/base.html' %}
+{% block content %}
+<div class="container">
+
+    <br />
+    <div class="row">
+        
+        <h1>People App</h1> <button  onclick="window.location='{% url 'addperson' %}'" type="button" class="btn btn-success">Add Person</button>
+
+        
+            <div class="col-lg-12">
+    
+            </div>
+        <br><br>
+    </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>Types</h1>
+                 {% for person in people %}
+                        {% for person_types in person.person_types.all  %}
+                             <li><a href="{{person.slug}}">{{person_types.title}}</a></li>
+                        {% endfor %} 
+                 {% endfor %} 
+
+            </div>
+            <div class="col-lg-6">
+                   <h1 align="center"> Person list</h1>
+                       
+                         {% for person in people %}
+                            <li>  <a href="{{person.slug}}">{{person.first_name}}</a></li>
+                         {% endfor %}
+
+            </div>
+        </div>
+</div>
+    
+</div>
+{% endblock %}
