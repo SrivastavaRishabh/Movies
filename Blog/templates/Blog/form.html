@@ -1,0 +1,21 @@
+{% extends 'messageboard/base.html' %}
+{% block content %}
+<div class="container form-group">
+<br/>
+<div class="row">
+           <div class="col-lg-6">
+                 <h2>Add New Post Here</h2>
+           </div>
+    <div class="col-lg-6">
+            <button  onclick="window.location='{% url 'blog-index' %}'" type="button" class="btn btn-success">GoBack</button>
+        </div>
+    </div>
+ <form method="POST" enctype="multipart/form-data"  >
+           {% csrf_token %}
+        <table class="form-control" >
+          {{ form }}
+        </table>
+          <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+{% endblock %}
