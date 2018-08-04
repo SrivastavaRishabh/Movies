@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models import permalink
 from tagging.fields import TagField
 
 
@@ -26,12 +25,12 @@ class Category(models.Model):
 
 class Post(models.Model):
     STATUS_CHOICES = (
-        (1, _('Draft')),
-        (2, _('Public')),
+        (1, 'Draft'),
+        (2, 'Public'),
     )
     title = models.CharField(max_length=50)
     slug = models.SlugField()
-    author = models.ForeignKey(Author, blank=True, null=True)
+    author = models.ForeignKey(Author, blank=True, null=True, on_delete=models.CASCADE)
     body = models.TextField()
     status = models.IntegerField(choices=STATUS_CHOICES, default=2)
     created = models.DateTimeField(auto_now_add=True)
