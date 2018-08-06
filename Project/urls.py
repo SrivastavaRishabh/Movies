@@ -20,9 +20,11 @@ from Music import urls
 from messageboard import urls
 from People import urls
 from Blog import urls
+from Bookmark import urls
 
 
 urlpatterns = [
+    path('Bookmark/', include('Bookmark.urls')),
     path('messageboard/', include('messageboard.urls')),
     path('People/', include('People.urls')),
     path('Movies/', include('Movies.urls')),
