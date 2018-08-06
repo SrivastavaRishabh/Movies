@@ -1,0 +1,51 @@
+body{
+    font-family: 'Roboto', sans-serif;
+
+}
+.primarybg{
+
+    background: #5140BF;
+    color: #fff;
+}
+.hover:hover{
+    color: #5140BF;
+}
+.secondbg{
+    background: #f1f1f1;
+}
+.bg-white{
+    background: #fff;
+}
+.shadow{
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.21);
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.21);
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link,.navbar-light .navbar-nav .nav-link{
+    color: #fff
+}
+.card-header{
+    background: #fff;
+    color: black;
+    border: none;
+}
+.card{
+    border:none;
+}
+.btn-link.text-black{
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+.inline{
+    display: inline;
+}
+
+form.form{
+    float: right;
+    display: inline;
+}
+.transparent{
+    background: transparent;
+    border: none;
+}
