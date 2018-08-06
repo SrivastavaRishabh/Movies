@@ -1,0 +1,20 @@
+{% block head %}
+
+{% endblock head %}
+
+{% block content %}
+
+    {% include "Pages/page_header.html"  with pages=pages  %}
+    <div align="tex-center">
+
+        <h4 align="tex-center">
+            Add New Page
+        </h4>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Save"/>
+        </form>
+    </div>
+
+{% endblock content %}

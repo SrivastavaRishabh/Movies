@@ -1,0 +1,11 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+<div class="navbar">
+ <a href="{% url 'page_index' %}">Home</a>
+</div>
+<div class="navbar">
+{% for page in pages %}
+     <a href="{% url 'page_detail' page.slug %}">{{page.title}}</a>
+{% endfor %}
+</div>

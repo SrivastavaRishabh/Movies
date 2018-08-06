@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {{Page.title}}</title>
+</head>
+
+<body>
+
+    {% include "Pages/page_header.html"  with pages=pages  %}
+  <p> Title : {% autoescape off %} {{Page.title}} {% endautoescape off %}
+    <br> Content : {% autoescape off %} {{Page.html_content}} {% endautoescape off %}
+    <br> Created On : {% autoescape off %} {{Page.created}} {% endautoescape off %}</p>
+</body>
+
+</html>
