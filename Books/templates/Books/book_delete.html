@@ -1,0 +1,9 @@
+
+  {% extends 'Books/base.html' %}
+    {% block content %}
+    <a href="{% url 'books_index' %}"><h1>Back</h1></a>
+    <form method="post">
+    {% csrf_token %}
+        <button class="btn btn-danger">Are you sure you want to delete &nbsp; "{{ book.name }}"  ?</button>
+    </form>
+    {% endblock %}
