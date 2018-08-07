@@ -1,0 +1,16 @@
+{% extends 'Books/base.html' %} {% block content %}
+<div class="container">
+
+    <br />
+  
+    <div class="row">
+        <div class="col-lg-8">
+            <button onclick="window.location='{% url 'book_list' %}'" type="button" class="btn btn-success">Filter</button>
+        </div>
+
+        {% for book in books %} {% include 'Books/book_entry.html' %} {% endfor%}
+
+
+    </div>
+</div>
+{% endblock %}
