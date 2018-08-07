@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'People',
     'Bookmark',
     'Pages',
+    'Books',
     
     
 ]
