@@ -1,0 +1,14 @@
+{% extends 'Movies/base.html' %} {% block content %}
+
+<section>
+    <div class="container">
+        <div class="columns  is-vcentered">
+            <strong>Name : </strong> {{genre.title}}
+            <br>
+            <strong>Movies : </strong> {% for movie in genre.moviegenre.all %} {{movie.title}} {% endfor %}
+            <br>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'Movies/base.html' %} {% block content %}
+
+<section>
+    <div class="container">
+        <div class="columns  is-vcentered">
+            <strong>Name : </strong> {{director}}
+            <br>
+            <strong>Phone : </strong> {{director.phone_number}}
+            <br>
+            <strong>Date Of Birth: </strong> {{director.birth_date}}
+            <br>
+            <strong>Gender : </strong> {{director.gender}}
+            <br>
+            <strong>website : </strong> {{director.website}}
+            <br>
+            <strong>Movies : </strong> {% for movie in director.moviedirector.all %} {{movie.title}} {% endfor %}
+            <br>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
