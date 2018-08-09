@@ -9,8 +9,10 @@ class Label(models.Model):
     website = models.URLField(blank=True)
     slug = models.SlugField(unique=True)
 
-    class Meta:
-        ordering = ('title',)
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        super(Label, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -30,9 +32,11 @@ class Genre(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
 
-    class Meta:
-        ordering = ('title',)
-    
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        super(Genre, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.title
 
@@ -43,9 +47,10 @@ class Band(models.Model):
     musicians = models.ManyToManyField(Musician, related_name='Music')
     website = models.URLField(blank=True)
     slug = models.SlugField(unique=True)
-
-    class Meta:
-        ordering = ('title',)
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        super(Band, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -63,8 +68,10 @@ class Album(models.Model):
     cover_image = models.FileField(upload_to='images/')
     genre = models.ManyToManyField(Genre, related_name='Music')
     
-    class Meta:
-        ordering = ('title',)
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        super(Album, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -77,12 +84,10 @@ class Track(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='Music')
     created = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering = ('title',)
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        super(Track, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
-    
-    
-
-
