@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from django.template.defaultfilters import slugify
 
 
 class Label(models.Model):
@@ -57,10 +56,10 @@ class Band(models.Model):
 
 
 class Album(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=100)
     prefix = models.CharField(max_length=50)
     substitle = models.CharField(max_length=50)
-    slug = models.URLField(unique=True)
+    slug = models.SlugField(unique=True)
     band = models.ForeignKey(Band, on_delete=models.CASCADE, related_name='album_band')
     label = models.ForeignKey(Label, on_delete=models.CASCADE, related_name='album_label')
     asin = models.CharField(max_length=50)
