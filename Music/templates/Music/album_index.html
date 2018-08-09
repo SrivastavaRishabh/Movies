@@ -1,0 +1,21 @@
+{% extends 'Music/base.html' %} {% block content %}
+<hr class="is-marginless">
+<section class="my-3">
+    <div class="container">
+        <div class="columns">
+            {% for album in albums %}
+            <div class="column is-3">
+                <a href=" {% url 'album_detail' album.slug %}">
+                    <div class="box border">
+                        <h4>
+                            <strong class="my-2 colordark">{{album.title}}</strong>
+                        </h4>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

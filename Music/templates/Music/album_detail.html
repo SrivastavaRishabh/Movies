@@ -1,0 +1,29 @@
+{% extends 'Music/base.html' %} {% block content %}
+
+<section>
+    <div class="container">
+        <div class="columns  is-vcentered">
+        <div class="column">
+                <img src="{{ MEDIA_ROOT }}/{{ album.cover_image.url }}" height="200" width="200" class="image" alt="">
+        </div>
+            <strong > Album name : </strong> {{album.title}}
+            <br>
+            <strong> Band :  </strong> {{album.band.title}}
+            <br>
+            <strong> Tracks   </strong> {% for track in album.track_album.all %} <li>{{track.title}}</li> {% endfor %}
+            <br>
+            <strong>Prefix : </strong> {{album.prefix}}
+            <br>
+            <strong>ASIN : </strong> {{album.asin}}
+            <br>
+            <strong>Label : </strong> {{album.label.title}}
+            <br>
+            <strong>Release date : </strong> {{album.release_date}}
+            <br>
+            <strong>Genre : </strong> {% for genre in album.genre.all %} <li>{{genre.title}}</li>{% endfor %}
+            <br>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

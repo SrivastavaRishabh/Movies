@@ -1,0 +1,21 @@
+{% extends 'Music/base.html' %} {% block content %}
+<hr class="is-marginless">
+<section class="my-3">
+    <div class="container">
+        <div class="columns">
+            {% for label in labels %}
+            <div class="column is-3">
+                <a href="{% url 'label_detail' label.slug%}">
+                    <div class="box border">
+                        <h4>
+                            <strong class="my-2 colordark">{{label.title}}</strong>
+                        </h4>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

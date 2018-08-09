@@ -1,0 +1,18 @@
+{% extends 'Music/base.html' %} {% block content %}
+
+<section>
+    <div class="container">
+        <div class="columns  is-vcentered">
+            <strong >Band Name : </strong> {{band.title}}
+            <br>
+            <strong>Band members   </strong> {% for musicians in band.musicians.all  %} <li>{{musicians.full_name}}</li> {% endfor %}
+            <br>
+            <strong>Prefix : </strong> {{band.prefix}}
+            <br>
+            <strong>website : </strong> {{band.website}}
+            <br>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

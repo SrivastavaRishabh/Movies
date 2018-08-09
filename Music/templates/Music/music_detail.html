@@ -1,0 +1,37 @@
+{% extends 'Music/base.html' %}
+{% block content %}
+ 
+
+<section>
+    <div class="container">
+        <div class="columns  is-vcentered">
+            <div class="column">
+                <img src="{{ MEDIA_ROOT }}/{{ track.album.cover_image.url }}" height="200" width="200" class="image" alt="">
+            </div>
+
+            <strong>Name : </strong> {{track.title}}
+            <br>
+            <strong>Album : </strong> {{track.album.title}}
+            <br>
+            <strong>Label : </strong> {{track.album.label.title}}
+            <br>
+            <strong>Subtitle : </strong> {{track.album.substitle}}
+            <br>
+            <strong>Band : </strong> {{track.album.band.title}}
+            <br>
+            <strong>Release Date : </strong> {{track.album.release_date}}
+            <br>
+            <strong>Genre : </strong> {% for genre in track.album.genre.all %}{{genre.title}} {% endfor %}
+            <br>
+            <strong>ASIN : </strong> {{track.album.asin}}
+            <br>
+            <strong>Singer / Singers : </strong> {% for musicians in track.album.band.musicians.all  %} {{musicians.full_name}} {% endfor %}
+            <br>
+            <strong>website : </strong> <a href="track.album.band.website">{{track.album.band.website}}</a>
+            <br>
+        </div>
+    </div>
+</section>
+
+{% endblock %}                  
+     

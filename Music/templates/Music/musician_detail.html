@@ -1,0 +1,25 @@
+{% extends 'Music/base.html' %} {% block content %}
+
+<section>
+    <div class="container">
+        <div class="columns  is-vcentered">
+            <strong>Full Name : </strong> {{musician.full_name}}
+            <br>
+            <strong>D.O.B : </strong> {{musician.birthdate}}
+            <br>
+            <strong>Phone no. : </strong> {{musician.phone}}
+            <br>
+            <strong>Email-id : </strong> {{musician.email}}
+            <br>
+            <strong>Band : </strong> {% for band in musician.band_musicians.all %}{{band.title}}{% endfor %}
+            <br>
+            <strong>Albums  </strong> {% for band in musician.band_musicians.all %} {% for album in band.album_band.all %} <li>{{album.title}}</li>
+            {% endfor %}{% endfor %} 
+            <strong>Records </strong> {% for band in musician.band_musicians.all %} {% for album in band.album_band.all %}
+            {% for track in album.track_album.all %}<li>{{track.title}}</li>{% endfor %} {% endfor %} {% endfor %}
+            <br>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
