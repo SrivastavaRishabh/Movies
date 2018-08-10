@@ -2,7 +2,8 @@ from django.test import TestCase
 from django.shortcuts import reverse
 from django.urls import resolve
 
-from .views import PeopleListView,PersonDetails
+from .views import PeopleListView
+
 
 class HomePageTest(TestCase):
     def test_root_url_resolves_to_home_page_view(self):

@@ -1,26 +1,25 @@
-{% extends 'People/base.html' %}
-{% block content %}
+{% extends 'People/base.html' %} {% block content %}
 <div class="container">
 
     <br />
     <div class="row">
 
-                <a href="{% url 'people-index' %}">Home Page</a>
-                <br><br>
-               <div class="col-lg-12">
-                        Name: {{ people.first_name}} {{people.last_name}}
-                        <br>Gender: {{people.gender}}
-                        <br>Date of Birth : {{people.birth_date}}
-                       <br>Caste: {% for person_types in people.person_types.all %}
-                                        {{person_types}}
-                                  {% endfor %} 
-                         <br>Website: {{people.website}}
-                         <br> <img src="{{people.image}}" height="100" width="100">
-                        
-                      
+        <a href="{% url 'people-index' %}">Home Page</a>
+        <br>
+        <br>
+        <div class="col-lg-12">
+            Name: {{ people.first_name}} {{people.last_name}}
+            <br>Gender: {{people.gender}}
+            <br>Date of Birth : {{people.birth_date}}
+            <br>Caste: {% for person_types in people.person_types.all %} {{person_types}} {% endfor %}
+            <br>Website: {{people.website}}
+            <br>
+            <img src="{{ MEDIA_ROOT }}/{{people.image}}" height="100" width="100">
 
-                </div>
-                
+
+
+        </div>
+
     </div>
-{% endblock %}
+    {% endblock %}
 </div>

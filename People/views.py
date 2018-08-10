@@ -1,6 +1,6 @@
-from django.shortcuts import render,HttpResponseRedirect,reverse
+from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.views.generic import ListView
-from .models import *
+from .models import Person
 from django.views.generic.detail import DetailView
 from .forms import EntryForm
 
@@ -15,7 +15,6 @@ class PersonDetails(DetailView):
     model = Person
     template_name = 'People/people_details.html'
     context_object_name = 'people'
-
 
 
 def add(request):
