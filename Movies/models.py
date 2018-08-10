@@ -20,7 +20,7 @@ class Director(models.Model):
         default='male',
         max_length=6
     )
-    
+
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
 
@@ -58,8 +58,11 @@ class Movie(models.Model):
     prefix = models.CharField(max_length=50)
     subtitle = models.CharField(max_length=200)
     slug = models.SlugField(blank=True)
-    directors = models.ManyToManyField("Director", related_name='moviedirector')
-    studio = models.ForeignKey("Studio", on_delete=models.CASCADE, related_name='moviestudio')
+    directors = models.ManyToManyField("Director",
+                                       related_name='moviedirector')
+    studio = models.ForeignKey("Studio",
+                               on_delete=models.CASCADE,
+                               related_name='moviestudio')
     release_date = models.DateField()
     cover_image = models.FileField(upload_to=('images/'))
     review = models.TextField()
