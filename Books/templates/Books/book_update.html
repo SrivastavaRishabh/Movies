@@ -1,12 +1,10 @@
-
-{% extends 'Books/base.html' %}
-{% block content %}
+ {% extends 'Books/base.html' %} {% block content %}
 <h1>Book Edit</h1>
-<form method="POST" enctype="multipart/form-data"  >
-           {% csrf_token %}
-        <table class="form-control" >
-        {{ form }}
-        </table>
-          <button type="submit" class="btn btn-success">Submit</button>
-    </form>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <table class="form-control">
+    {{ form }}
+  </table>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
 {% endblock %}

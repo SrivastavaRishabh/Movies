@@ -1,17 +1,19 @@
-from django.shortcuts import render,HttpResponseRedirect
+from django.shortcuts import render
+from django.shortcuts import HttpResponseRedirect
 from django.views import generic
-from django.urls import reverse_lazy,reverse
-from django.views.generic.edit import DeleteView,UpdateView
+from django.urls import reverse_lazy
+from django.urls import reverse
+from django.views.generic.edit import DeleteView
+from django.views.generic.edit import UpdateView
 from .models import Books
 from .forms import EntryForm
 from .filter import BookFilter
-# Create your views here.
 
 
 class BooksIndex(generic.ListView):
-  model = Books
-  template_name = 'Books/books_index.html'
-  context_object_name = 'books'
+    model = Books
+    template_name = 'Books/books_index.html'
+    context_object_name = 'books'
 
 
 class UpdateBook(UpdateView):
@@ -24,27 +26,25 @@ class UpdateBook(UpdateView):
 
 def BookAdd(request):
     if request.method == 'POST':
-        form = EntryForm(request.POST,request.FILES)
+        form = EntryForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('books_index'))
     else:
         form = EntryForm()
-    return render(request,'Books/book_add.html',{'form':form})
+    return render(request, 'Books/book_add.html', {'form': form})
 
 
 class DeleteBook(DeleteView):
     model = Books
     template_name = 'Books/book_delete.html'
     context_object_name = 'book'
-    # Notice get_success_url is defined here and not in the model, because the model will be deleted
+
     def get_success_url(self):
         return reverse('books_index')
 
 
 def book_list(request):
-	books = Books.objects.all()
-	filter = BookFilter(request.GET, queryset = books)
-	return render(request, 'Books/filter.html', {'filter' : filter})    
-
-
+    books = Books.objects.all()
+    filter = BookFilter(request.GET, queryset=books)
+    return render(request, 'Books/filter.html', {'filter': filter})

@@ -1,23 +1,21 @@
 <div class="book_enter">
-    
-    <div class="card" style="width: 25rem;"> 
+
+    <div class="card" style="width: 25rem;">
         <img class="card-img-top" src="{{ MEDIA_ROOT }}/{{ book.image.url }}" align="right" height="200" width="200" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">{{book.name}}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{%  url 'book_update' book.id %}" >Update</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="{%  url 'book_delete' book.id %}" >Delete</a></h5></h5>
-            <p class="card-text">{{book.description}}
-            Total Pages:    {{ book.pages }}<br>
-            Genre:          {% for genre in book.genre.all %}{{genre}}{% endfor %}  
-                              <br>  
-                             
-            Publisher Name: {{ book.publisher }} <br>
-            Author Name:    {% for author in book.authors.all %}
-                                {{author}}
-                            {% endfor %} <br>
-            Published on:   {{ book.pubdate }}
-            
+            <h5 class="card-title">{{book.name}}&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{%  url 'book_update' book.id %}">Update</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{%  url 'book_delete' book.id %}">Delete</a>
+            </h5>
+            </h5>
+            <p class="card-text">{{book.description}} Total Pages: {{ book.pages }}
+                <br> Genre: {% for genre in book.genre.all %}{{genre}}{% endfor %}
+                <br> Publisher Name: {{ book.publisher }}
+                <br> Author Name: {% for author in book.authors.all %} {{author}} {% endfor %}
+                <br> Published on: {{ book.pubdate }}
+
             </p>
-            
+
         </div>
     </div>
 </div>
