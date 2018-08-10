@@ -1,8 +1,0 @@
-  <div class="post_entry">
-        <br />
-            <h4 align="center"><a href ={% url 'postdetails' Post.id  %} >{{Post.title}}</a></h4>
-            {% comment %} <h4 align="center"><li>{{post.title}}</li><button onclick="window.location.href='{%  url 'postdetails' pk=post.id  %}'" type="button" class="btn btn-success">Detail</button></h4> {% endcomment %}
-            <p align="center">No. Of Comments:{{Post.comment_set.count}}</p>
-            <h6 align="center">By {{ Post.author}} on {{Post.created}}</li></h6>
-
-    </div>
