@@ -19,10 +19,10 @@ from Movies import urls
 from Music import urls
 from messageboard import urls
 from People import urls
-from Blog import urls
 from Bookmark import urls
 from Pages import urls
 from Books import urls
+from Forum import urls
 
 
 urlpatterns = [
@@ -33,6 +33,7 @@ urlpatterns = [
     path('People/', include('People.urls')),
     path('Movies/', include('Movies.urls')),
     path('Music/', include('Music.urls')),
-    path('blog/', include('Blog.urls')),
+    path('Forum/', include('Forum.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
