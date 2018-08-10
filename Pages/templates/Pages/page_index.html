@@ -1,19 +1,18 @@
-{% block head %}
+{% block head %} {% endblock head %} {% block content %} {% include "Pages/page_header.html" with pages=pages %}
+<div class="box">
+    <h1 align="center">Pages</h1>
+    <div align="center">
+        <a href="{% url 'page_add' %} ">Add Page</a>
+    </div>
 
-{% endblock head %}
-
-{% block content %}
-
-    {% include "Pages/page_header.html" with pages=pages %}
-    <div class="box">
-    <h1 align="center">Pages</h1><div align="center"><a href="{% url 'page_add' %} ">Add Page</a></div>
-    
     <ul align="center">
-   
+
         {% for page in pages %}
-            <a href="{% url 'page_detail' page.slug %}"><h4>{{page.title}}</h4></a>
+        <a href="{% url 'page_detail' page.slug %}">
+            <h4>{{page.title}}</h4>
+        </a>
         {% endfor %}
 
     </ul>
-    </div>
+</div>
 {% endblock content %}

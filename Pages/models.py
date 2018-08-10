@@ -12,7 +12,7 @@ class Page(models.Model):
 
     class Meta:
         ordering = ['order', 'id']
-    
+
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(self.title)
@@ -20,5 +20,3 @@ class Page(models.Model):
 
     def __str__(self):
         return self.title
-
-

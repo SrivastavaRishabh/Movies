@@ -1,9 +1,6 @@
-from django.shortcuts import render,HttpResponseRedirect
 from django.views import generic
-from django.views.generic.edit import CreateView
-from django.urls import reverse_lazy,reverse
-from .models import *
-from .forms import EntryForm
+from django.urls import reverse_lazy
+from .models import Page
 
 
 # Create your views here.
@@ -24,7 +21,7 @@ class PageDetail(generic.DetailView):
         Pages = Page.objects.all().order_by('ordering')
         context['Pages'] = Pages
         return context
- 
+
 
 class PageAdd(generic.CreateView):
     model = Page
