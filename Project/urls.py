@@ -14,15 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
-from Movies import urls
-from Music import urls
-from messageboard import urls
-from People import urls
-from Bookmark import urls
-from Pages import urls
-from Books import urls
-from Forum import urls
+from django.urls import path, include
 
 
 urlpatterns = [
