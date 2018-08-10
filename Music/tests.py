@@ -12,7 +12,7 @@ class MusicListView(TestCase):
     def test_view_url_by_name(self):
         resp = self.client.get(reverse('music_index'))
         self.assertEqual(resp.status_code, 200)
-    
+
     def test_view_template(self):
         resp = self.client.get(reverse('music_index'))
         self.assertEqual(resp.status_code, 200)

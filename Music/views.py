@@ -1,8 +1,5 @@
-from django.shortcuts import render
-from django.views.generic.edit import CreateView
-from django.urls import reverse_lazy,reverse
 from django.views import generic
-from .models import *
+from .models import Track, Band, Album, Musician, Genre, Label
 
 
 class MusicListView(generic.ListView):
@@ -63,6 +60,7 @@ class MusicianDetailView(generic.DetailView):
     model = Musician
     template_name = "Music/musician_detail.html"
     context_object_name = 'musician'
+
 
 class GenreListView(generic.ListView):
     model = Genre

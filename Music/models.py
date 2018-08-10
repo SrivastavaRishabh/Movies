@@ -25,7 +25,7 @@ class Musician(models.Model):
 
     def __str__(self):
         return self.full_name
-    
+
 
 class Genre(models.Model):
     title = models.CharField(max_length=100)
@@ -46,6 +46,7 @@ class Band(models.Model):
     musicians = models.ManyToManyField(Musician, related_name='band_musicians')
     website = models.URLField(blank=True)
     slug = models.SlugField(unique=True)
+
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(self.title)
@@ -60,13 +61,15 @@ class Album(models.Model):
     prefix = models.CharField(max_length=50)
     substitle = models.CharField(max_length=50)
     slug = models.SlugField(unique=True)
-    band = models.ForeignKey(Band, on_delete=models.CASCADE, related_name='album_band')
-    label = models.ForeignKey(Label, on_delete=models.CASCADE, related_name='album_label')
+    band = models.ForeignKey(Band, on_delete=models.CASCADE,
+                             related_name='album_band')
+    label = models.ForeignKey(Label, on_delete=models.CASCADE,
+                              related_name='album_label')
     asin = models.CharField(max_length=50)
     release_date = models.DateField()
     cover_image = models.FileField(upload_to='images/')
     genre = models.ManyToManyField(Genre, related_name='album_genre')
-    
+
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(self.title)
@@ -80,7 +83,8 @@ class Track(models.Model):
     title = models.CharField(max_length=50)
     song = models.FileField(upload_to='songs/')
     slug = models.SlugField(unique=True)
-    album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='track_album')
+    album = models.ForeignKey(Album, on_delete=models.CASCADE,
+                              related_name='track_album')
     created = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
