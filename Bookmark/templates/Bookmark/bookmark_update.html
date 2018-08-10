@@ -1,8 +1,6 @@
-{% extends 'Bookmark/base.html' %}
-{% block body %}
+{% extends 'Bookmark/base.html' %} {% block body %}
 <h1>Bookmark Edit</h1>
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
+<form method="post">{% csrf_token %} {{ form.as_p }}
     <input type="submit" value="Submit" />
 </form>
 {% endblock body%}

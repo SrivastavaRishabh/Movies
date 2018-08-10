@@ -1,19 +1,12 @@
-{% extends 'Bookmark/base.html' %} {% block body %} 
-{% for bookmark in bookmarks %}
-<p>Name :{{bookmark.name}}  <a href="{{ bookmark.url }}">link</a>
-<br>Description : {{bookmark.description}}
-<br>Tags :{% for tags in bookmark.tags.names %}
-               <span class="badge badge-info">{{tags}}</span>  
-            {% endfor %}
+{% extends 'Bookmark/base.html' %} {% block body %} {% for bookmark in bookmarks %}
+<p>Name :{{bookmark.name}}
+    <a href="{{ bookmark.url }}">link</a>
+    <br>Description : {{bookmark.description}}
+    <br>Tags :{% for tags in bookmark.tags.names %}
+    <span class="badge badge-info">{{tags}}</span>
+    {% endfor %} {% comment %}
+    <a href="{{bookmark.id}}/update">Update</a> {% endcomment %}
+    <button onclick="window.location.href='{%  url 'bookmark_update' bookmark.id %}'" type="button" name="button">UPDATE</button>
+    <button onclick="window.location.href='{%  url 'bookmark_delete' bookmark.id %}'" type="button" name="button">DELETE</button>
 
-{% comment %} <a href="{{bookmark.id}}/update">Update</a>  {% endcomment %}
-<button onclick="window.location.href='{%  url 'bookmark_update' bookmark.id %}'" type="button" name="button">UPDATE</button>
-<button onclick="window.location.href='{%  url 'bookmark_delete' bookmark.id %}'" type="button" name="button">DELETE</button>
-
-<hr>
-{% endfor %}
-
-
-    
-
-{% endblock body%}
+    <hr> {% endfor %} {% endblock body%}

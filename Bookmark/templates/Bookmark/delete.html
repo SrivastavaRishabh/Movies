@@ -1,8 +1,9 @@
-    {% extends 'Bookmark/base.html' %}
-    {% block body %}
-    <a href="{% url 'bookmark_index' %}"><h1>Home</h1></a>
-    <form method="post">
+ {% extends 'Bookmark/base.html' %} {% block body %}
+<a href="{% url 'bookmark_index' %}">
+    <h1>Home</h1>
+</a>
+<form method="post">
     {% csrf_token %}
-        <button class="btn btn-danger">Are you sure you want to delete " {{ bookmark.name }} "  ?</button>
-    </form>
-    {% endblock body%}
+    <button class="btn btn-danger">Are you sure you want to delete " {{ bookmark.name }} " ?</button>
+</form>
+{% endblock body%}
