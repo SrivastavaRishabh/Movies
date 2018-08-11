@@ -41,15 +41,11 @@ INSTALLED_APPS = [
     'taggit',
     'tagging',
     'Music',
-    'Blog',
-    'messageboard',
     'django_filters',
     'People',
     'Bookmark',
     'Pages',
     'Books',
-    
-    
 ]
 
 MIDDLEWARE = [
@@ -130,7 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_ROOT= os.path.join(BASE_DIR,'Project/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'Project/')
 
 
 STATIC_URL = '/images/'
