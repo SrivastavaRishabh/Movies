@@ -1,0 +1,7 @@
+Need to install a virtual environment
+In that virtual environment install python3
+Django version 2.0.0
+install django-tagging
+install django-taggit
+intall django-Pillow
+before running server make and apply migrations
