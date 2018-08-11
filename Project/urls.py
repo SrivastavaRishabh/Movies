@@ -21,11 +21,8 @@ urlpatterns = [
     path('Bookmark/', include('Bookmark.urls')),
     path('Books/', include('Books.urls')),
     path('Pages/', include('Pages.urls')),
-    path('messageboard/', include('messageboard.urls')),
     path('People/', include('People.urls')),
     path('Movies/', include('Movies.urls')),
     path('Music/', include('Music.urls')),
-    path('Forum/', include('Forum.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
 ]
