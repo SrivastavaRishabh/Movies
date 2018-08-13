@@ -1,1 +1,1 @@
-Basic apps for to learn Django
+Basic apps to learn Django
